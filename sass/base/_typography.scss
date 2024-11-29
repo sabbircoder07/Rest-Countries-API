@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+:root {
+  --dark-mood-background-color: ;
+  --light-mood-background-color: ;
+  --dark-mood-header-color: ;
+  --light-mood-heder-color: ;
+  --dark-mood-element-background: ;
+  --light-mood-element-background: ;
+  --dark-mood-color: ;
+  --light-mood-color: ;
+  --dark-mood-input-background: ;
+  --light-mood-input-background: ;
+  --dark-mood-placeholder-color: ;
+  --dark-mood-icon-color: ;
+
+  --color-Dark-Blue-Dark-Mode-Elements: hsl(209, 23%, 22%);
+  --color-Very-Dark-Blue-Dark-Mode-Background: hsl(207, 26%, 17%);
+  --color-Very-Dark-Blue-Light-Mode-Text: hsl(200, 15%, 8%);
+  --color-Dark-Gray-Light-Mode-Input: hsl(0, 0%, 52%);
+  --color-Very-Light-Gray-Light-Mode-Background: hsl(0, 0%, 98%);
+  --color-White-Dark-Mode-Text-and-Light-Mode-Elements: hsl(0, 0%, 100%);
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  margin: 0 auto;
+  max-width: 144rem;
+  min-height: calc(100vh - 2 * 4vw);
+  background-color: var(--color-Very-Light-Gray-Light-Mode-Background);
+  font-size: 1.6rem;
+  line-height: 2rem;
+  color: var(--color-Very-Dark-Blue-Light-Mode-Text);
+  transition: all 0.3s ease-in-out;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: inherit;
+  font-weight: 700;
+}
+
+.heading-primary-large {
+  font-size: 2rem;
+  line-height: 2rem;
+  @media only screen and (max-width: $bp-medium-tab) {
+    font-size: 1.8rem;
+  }
+}
+
+.heading-primary-small {
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  @media only screen and (max-width: $bp-medium-tab) {
+    font-size: 1.6rem;
+  }
+}
+
+.heading-secondary {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.color-white {
+  color: var(--color-White);
+}
+
+p {
+  color: inherit;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  font-weight: 400;
+}

@@ -1,0 +1,60 @@
+.header {
+  background-color: var(--color-White-Dark-Mode-Text-and-Light-Mode-Elements);
+  box-shadow: 0 0.6rem 1.2rem -0.2rem #32325d40,
+    0 0.3rem 0.7rem -0.3rem #0000004d;
+  padding: 1.2rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  transition: all 0.3s ease-in-out;
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column-reverse;
+  }
+  &__numberOf-countries {
+    color: inherit;
+    font-size: 1.6rem;
+    font-weight: 700;
+    span {
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+  }
+  &__mode-switcher-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: inherit;
+    font-size: 1.6rem;
+    font-weight: 600;
+    background-color: transparent;
+    width: 15rem;
+    padding: 0.2rem 1.4rem;
+    outline: none;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-width: 2px;
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  }
+  &__mode-switcher {
+    transition: all 0.2s ease-in-out;
+    &__icon-box {
+      margin-top: 5px;
+    }
+    &__icon {
+      height: 2rem;
+      filter: invert(84%) sepia(9%) saturate(1100%) hue-rotate(165deg)
+        brightness(88%) contrast(83%);
+    }
+    &__text-box {
+      color: inherit;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

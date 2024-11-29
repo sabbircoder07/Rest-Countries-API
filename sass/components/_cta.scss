@@ -1,0 +1,124 @@
+.cta {
+  &__search-container {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    padding: 5rem;
+    @media only screen and (max-width: $bp-small) {
+      padding: 2rem 2rem;
+    }
+  }
+  &__country-form {
+    width: 100%;
+    outline: none;
+
+    fieldset {
+      outline: none;
+      border: none;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      @media only screen and (max-width: $bp-medium-tab) {
+        flex-direction: column-reverse;
+      }
+    }
+
+    .field {
+      position: relative;
+    }
+
+    .input__country-name {
+      width: 48rem;
+      height: 5.6rem;
+      padding-left: 5.6rem;
+      border: 0;
+      background-color: var(
+        --color-White-Dark-Mode-Text-and-Light-Mode-Elements
+      );
+      outline: none;
+      color: inherit;
+      font-size: 1.8rem;
+      border-radius: 5px;
+      box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d;
+      transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+      @media only screen and (max-width: $bp-small) {
+        width: 32rem;
+      }
+    }
+    .input__country-name::placeholder {
+      font-size: 1.6rem;
+      color: var(--color-Dark-Gray-Light-Mode-Input);
+      opacity: 0.6;
+    }
+    .search-icon {
+      position: absolute;
+      left: 2rem;
+      top: 1.8rem;
+      fill: var(--color-Dark-Gray-Light-Mode-Input);
+      width: 2rem;
+      height: 2rem;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
+      outline: 0;
+      box-shadow: none;
+      border: 0 !important;
+      appearance: none;
+      /*  safari  */
+      -webkit-appearance: none;
+      /*  other styles for aesthetics */
+      width: 25rem;
+      font-size: 1.8rem;
+      height: 5.6rem;
+      padding: 0.6rem 6rem 0.6rem 1.6rem;
+      background-color: var(
+        --color-White-Dark-Mode-Text-and-Light-Mode-Elements
+      );
+      border-radius: 5px;
+      color: inherit !important;
+      cursor: pointer;
+      box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d;
+    }
+    select::-ms-expand {
+      display: none;
+    }
+    .select::before,
+    .select::after {
+      --size: 0.4rem;
+      content: "";
+      position: absolute;
+      right: 1.4rem;
+      pointer-events: none;
+    }
+
+    .select::before {
+      border-left: var(--size) solid transparent;
+      border-right: var(--size) solid transparent;
+      border-bottom: var(--size) solid
+        var(--color-Very-Dark-Blue-Light-Mode-Text);
+      top: 40%;
+    }
+
+    .select::after {
+      border-left: var(--size) solid transparent;
+      border-right: var(--size) solid transparent;
+      border-top: var(--size) solid var(--color-Very-Dark-Blue-Light-Mode-Text);
+      top: 55%;
+    }
+
+    .region-list {
+      font-size: 1.8rem;
+    }
+    .region-list:hover {
+      cursor: pointer !important;
+    }
+  }
+}

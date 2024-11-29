@@ -1,0 +1,64 @@
+.Bento-grid {
+  width: auto;
+  padding: 4rem;
+  display: grid;
+  grid-template: repeat(4, auto) / repeat(4, 26rem);
+  gap: 2.8rem;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-template: repeat(4, auto) / repeat(4, 20rem);
+    gap: 2rem;
+    padding: 4rem 2rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    grid-template: repeat(8, auto) / repeat(1, 35rem);
+    grid-auto-flow: column dense;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    grid-template: repeat(8, auto) / repeat(1, 33rem);
+  }
+
+  &-item--1 {
+    max-height: 65%;
+    grid-row: span 2;
+    @media only screen and (max-width: $bp-small) {
+      max-height: 100%;
+      grid-row: span 1;
+      grid-column: 1/2;
+    }
+  }
+  &-item--3 {
+    grid-column: 4/5;
+    grid-row: span 2;
+    @media only screen and (max-width: $bp-small) {
+      grid-row: span 1;
+      grid-column: 2/1;
+    }
+  }
+  &-item--2 {
+    grid-column: 2/4;
+    @media only screen and (max-width: $bp-small) {
+      grid-column: 2/1;
+    }
+  }
+  &-item--8 {
+    grid-column: 3/5;
+    @media only screen and (max-width: $bp-small) {
+      grid-column: 2/1;
+    }
+  }
+  &-item--6 {
+    max-height: 165%;
+    grid-row: span 2;
+    margin-top: -20rem;
+    @media only screen and (max-width: $bp-large) {
+      margin-top: -16rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+      grid-row: span 1;
+      margin-top: 0rem;
+    }
+  }
+}

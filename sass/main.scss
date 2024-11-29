@@ -1,0 +1,16 @@
+@import "./framework/breakpoints";
+/*BASE-Base Variables with mixins and palceholders*/
+
+@import "./base/base";
+@import "./base/typography";
+
+/*FRAMEWORK-Structure and layout files*/
+
+/*Component-header and another files*/
+@import "./components/header";
+@import "./components/countries";
+@import "./components/cta";
+@import "./components/spinner";
+@import "./components/message";
+@import "./components/countryDetails";
+@import "./components/pagination";
