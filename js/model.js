@@ -2,13 +2,15 @@ import { API_URL, COUNTRY_PER_PAGE } from "./config.js";
 import { getJSON } from "./helper.js";
 
 export const state = {
+  currentMode: "",
+  regions: [],
+  countriesName: [],
   countyList: {
     query: "",
     results: [],
     resultsPerPage: COUNTRY_PER_PAGE,
     page: 1,
   },
-  regions: [],
   countryDetails: {
     query: "",
     name: "",
@@ -24,7 +26,6 @@ export const state = {
     borders: [],
     flag: "",
   },
-  currentMode: "",
 };
 
 export const getCurrentMode = function (currentMode) {
@@ -65,6 +66,21 @@ export const getAllCountries = async function () {
   } finally {
   }
 };
+
+export const getAllCountriesName = async function () {
+  try {
+    const data = await getJSON(`${API_URL}/all`);
+    let countryNameList = [];
+    data.forEach((data) => {
+      countryNameList.push(data.name.common);
+    });
+    state.countriesName = [...new Set(countryNameList)];
+  } catch (err) {
+    console.error(err);
+    throw err;
+  } finally {
+  }
+};
 /******  93714125-661a-43ef-908d-0bf8d66b61e7  *******/
 
 export const getAllRegions = async function () {
@@ -85,7 +101,10 @@ export const getAllRegions = async function () {
 export const loadSearchResultByCountry = async function (country) {
   try {
     state.countyList.query = country;
-    const data = await getJSON(`${API_URL}/name/${country}`);
+    console.log(country);
+    const data = await getJSON(
+      `${API_URL}/name/${country.trim()}?fullText=true`
+    );
     state.countyList.results = data;
   } catch (err) {
     console.error(err);
@@ -114,16 +133,14 @@ export const loadCountryDetails = async function (CountryName) {
     state.countryDetails.query = CountryName;
     let data = await getJSON(`${API_URL}/name/${CountryName}?fullText=true`);
     data = data[0];
-    console.log(data.borders);
+
     if (data.borders) {
-      if (allCountriesData.length > 0 && data.borders.length > 0) {
-        const getBorderCountriesNames = (data) =>
-          [...allCountriesData].reduce((a, c) => {
-            data.borders.includes(c.cca3) && a.push(c.name.common);
-            return a;
-          }, []);
-        state.countryDetails.borders = getBorderCountriesNames(data);
-      }
+      const getBorderCountriesNames = (data) =>
+        [...allCountriesData].reduce((a, c) => {
+          data.borders.includes(c.cca3) && a.push(c.name.common);
+          return a;
+        }, []);
+      state.countryDetails.borders = getBorderCountriesNames(data);
     }
 
     state.countryDetails.name = data.name.common;

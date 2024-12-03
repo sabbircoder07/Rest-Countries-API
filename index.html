@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.comp.css" />
+    <link rel="stylesheet" href="sass/main.scss" />
     <script defer type="module" src="js/controller.js"></script>
     <title>Rest Countries API With Color Theme Switcher Master</title>
   </head>
@@ -28,7 +28,7 @@
       <div class="cta__search-container">
         <form action="#" id="countrySearchOption" class="cta__country-form">
           <fieldset>
-            <div class="field">
+            <div class="field autocomplete">
               <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
                 <g>
                   <path
@@ -43,6 +43,7 @@
                 class="input__country-name"
                 placeholder="Search for a country..."
                 required
+                autocomplete="off"
               />
             </div>
             <div class="field select">

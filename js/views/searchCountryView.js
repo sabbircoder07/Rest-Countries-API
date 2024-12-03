@@ -1,9 +1,14 @@
 class SearCountryView {
   #parentElementSearch = document.querySelector(".cta__country-form");
 
-  getCountyQuery() {
-    return this.#parentElementSearch.querySelector(".input__country-name")
-      .value;
+  getCountyQuery(countryName) {
+    console.log(countryName);
+    if (!countryName) {
+      return this.#parentElementSearch.querySelector(".input__country-name")
+        .value;
+    } else {
+      return countryName;
+    }
   }
 
   clearInput() {
@@ -18,12 +23,6 @@ class SearCountryView {
     this.#parentElementSearch.addEventListener("submit", function (e) {
       e.preventDefault();
       handler();
-    });
-
-    ["input"].forEach((ev) => {
-      this.#parentElementSearch
-        .querySelector(".input__country-name")
-        .addEventListener(ev, handler);
     });
   }
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CountryDetails.8d8029cf.css">
+    <script defer="" src="/index.850bd9e5.js"></script>
+    <title>Rest Countries API With Color Theme Switcher Master</title>
+  </head>
+  <body class="body">
+    <header class="header">
+      <h1 class="heading-primary-large">Where in the world?</h1>
+      <div class="header__numberOf-countries">250 Countries Found</div>
+      <div class="header__mode-switcher">
+        <button class="header__mode-switcher-btn">
+          <div class="header__mode-switcher__icon-box">
+            <img class="header__mode-switcher__icon" src="https://shivanarrthine.com/public/images/icons/moon.svg" alt="switcher icon">
+          </div>
+          <div class="header__mode-switcher__text-box">Light Mode</div>
+        </button>
+      </div>
+    </header>
+    <main class="main">
+      <div class="cta__search-container">
+        <form action="#" id="countrySearchOption" class="cta__country-form">
+          <fieldset>
+            <div class="field autocomplete">
+              <svg viewbox="0 0 24 24" aria-hidden="true" class="search-icon">
+                <g>
+                  <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                </g>
+              </svg>
+              <input type="text" name="countryName" id="countryName" class="input__country-name" placeholder="Search for a country..." required="" autocomplete="off">
+            </div>
+            <div class="field select">
+              <select id="region" class="region-list">
+                <option selected="" disabled="">Filter by Region</option>
+              </select>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="countries"></div>
+      <div class="pagination"></div>
+    </main>
+  </body>
+</html>

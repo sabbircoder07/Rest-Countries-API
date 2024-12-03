@@ -6,6 +6,7 @@ import searchCountryView from "./views/searchCountryView.js";
 import modeSwitcherView from "./views/modeSwitcherView.js";
 import paginationView from "./views/paginationView.js";
 import * as config from "./config.js";
+import autocompleteView from "./views/autocompleteView.js";
 
 /**
  * Fetches the information of all countries from the Rest Countries API
@@ -46,6 +47,22 @@ const controlRegionList = async function () {
 const controlLoadSearchResultByCountry = async function () {
   try {
     const country = searchCountryView.getCountyQuery();
+    if (!country) return;
+    view.renderSpinner();
+    await model.loadSearchResultByCountry(country);
+    setTimeout(function () {
+      const data = model.getCountriesByPage();
+      countriesView.render(data);
+      paginationView.render(model.state.countyList);
+    }, config.SHOW_COUNTRIES_SEC * 1000);
+  } catch (err) {
+    // Alert the user of any errors
+    view.renderError(err);
+  }
+};
+
+export const searchResultCountryAutocomplete = async function (country) {
+  try {
     if (!country) return;
     view.renderSpinner();
     await model.loadSearchResultByCountry(country);
@@ -118,6 +135,19 @@ const controlPagination = function (goToPage) {
   }
 };
 
+const controlAutoCompleteCountryName = async function () {
+  try {
+    await model.getAllCountriesName();
+    const data = model.state.countriesName;
+    autocompleteView.render(data);
+  } catch (err) {
+    // Alert the user of any errors
+    console.log(err);
+    view.renderError(err);
+  } finally {
+  }
+};
+
 const init = function () {
   modeSwitcherView.addHandlerLoad(controlModeSwitcherPageLoad);
   modeSwitcherView.addHandlerClick(controlModeSwitcher);
@@ -126,6 +156,7 @@ const init = function () {
   searchCountryView.addHandlerSearchCountry(controlLoadSearchResultByCountry);
   searchCountryView.addHandlerSearchCountryByRegion(controlLoadCountryByRegion);
   paginationView.addHandlerClick(controlPagination);
+  controlAutoCompleteCountryName();
 };
 
 init();

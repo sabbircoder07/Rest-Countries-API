@@ -1,0 +1,43 @@
+input[type="submit"] {
+  background-color: DodgerBlue;
+  color: #fff;
+}
+
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: var(
+    --color-Very-Light-Gray-Light-Mode-Background
+  ) !important;
+  color: fieldtext !important;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+.autocomplete-items {
+  position: absolute;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 1.2rem;
+  cursor: pointer;
+  background-color: var(--color-Very-Light-Gray-Light-Mode-Background);
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #ffd43b;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
